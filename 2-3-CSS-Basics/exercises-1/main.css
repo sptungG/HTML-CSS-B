@@ -1,0 +1,102 @@
+/* 1. Tạo một khối có class là `box` có độ rộng và chiều cao lần lượt là `200x300` có màu nền là `#ffa400` và chữ bất kỳ màu đen, border màu vàng, padding 10px, margin 15px bo góc 4px, chữ canh giữa.
+
+2. Tạo một khối có đoạn chữ rất dài bât kỳ, có độ rộng tối đa là `500px` hiển thị 3 hàng kết hợp dấu 3 chấm
+
+3. Tạo một khối có đoạn chữ rất dài bât kỳ, có độ rộng tối đa là `100px` hiển thị 1 hàng kết hợp dấu 3 chấm
+
+4. Tạo một khối có độ rộng và chiều cao lần lượt là `100vw` `100vh` cho hình nền bất kỳ, yêu cầu phủ toàn khối, canh góc bên phải, không có lặp lại
+
+5. Tạo một khối có độ rộng và chiêu cao tương ứng là `400x400` và cho hình ảnh hiển thị bên trong, yêu cầu khối này là hình tròn, và hình ảnh nằm trọn bên trong, không được méo, không được tràn ra ngoài.
+
+6. Chèn font từ Google vào bài tập sử dụng Fonts `Roboto` với các độ đậm là `400` và `600` ✔
+
+7. Tạo ra các button như hình: sử dụng padding, margin, text-align, kiến thức đã học
+![https://designerup.co/blog/content/images/2019/01/button_corners.png](https://designerup.co/blog/content/images/2019/01/button_corners.png)
+
+8. Tương tự bài 7 nhưng dùng thẻ `a`
+
+9. Áp dụng pseudo `:hover` để khi rê chuột vào kết quả bài 8 thì đổi màu nền và màu chữ */
+/* ================================================================= */
+*{
+  box-sizing: border-box;
+}
+/* html{
+  font-size: 62.5%;
+} */
+img{
+  display: block;
+  max-height: 100%;
+}
+a{
+  text-decoration: none;
+}
+.text{
+  font-family: 'Roboto', sans-serif;
+}
+.box{
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #ffa400;
+  color: #111;
+  border: 2px solid yellow;
+}
+.box2{
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.box3{
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap; /* hiển thị đoạn văn chỉ trên 1 hàng */
+  text-overflow: ellipsis;
+}
+.image-wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+.image{
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.button-container{
+  width: 100vw;
+  text-align: center;
+}
+.btn{
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  background-color: purple;
+  color: #fff;
+  border: none;
+  padding: 10px 50px;
+  margin: 5px;
+}
+.btn2{
+  border-radius: 5px;
+}
+.btn3{
+  border-radius: 50px;
+}
+.btn:hover{
+  cursor: pointer;
+  background-color: palevioletred;
+  color: #111;
+}

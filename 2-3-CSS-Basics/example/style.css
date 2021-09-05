@@ -1,0 +1,252 @@
+/* Selector{
+  property: value;
+} */
+body{
+  height: 1000px;
+}
+p{
+  /* 
+  name: red, aqua, yellow
+  hexa: #111 #ff7870 #7cd 
+  rgb: rgb(0,0,0) rgb(255,255,255)
+  rgba: rgba(0,0,0,0.5) 
+  */
+  color: black;
+}
+
+.background{
+  background-color: #2979ff;
+  width: 200px;
+  min-height: 200px;
+
+  /* overflow: hidden; */
+  /* overflow-y: auto; */
+}
+.background2{
+  /* background-image: url("https://images.unsplash.com/photo-1626796615393-b6925bc1469b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80"); */
+  /* width: 100%;
+  height: 1000px; */
+  /* background-position: center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  
+  /* Viết gọn */
+  background: url("https://images.unsplash.com/photo-1626796615393-b6925bc1469b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80") fixed no-repeat center center / cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+/* -------------------------------------------------------------- */
+/*
+mặc định font-size tất cả trình duyệt 100% = 16px
+1em = 1rem = 16px
+*/
+/* em là đơn vị phụ thuộc vào thuộc tính font-size của chính nó hoặc phần tử chứa nó */
+.em{
+  font-size: 32px; /* 1em = 32px */
+  width: 10em;
+  height: 10em;
+  background-color: orange;
+}
+/* rem chỉ phụ thuộc vào font-size của thẻ html */
+.rem{
+  font-size: 32px;
+  width: 10rem;
+  height: 10rem;
+  background-color: palevioletred;
+  /* border-top: 2px solid gold;
+  border-right: 2px solid red;
+  border-bottom: 2px solid blue;
+  border-left: 2px solid green; */
+  border: 2px dashed black;
+  border-radius: 10px
+}
+/* đưa về cơ số 10 cho dễ tính toán 
+100% = 16px -> 62.5% = 10px
+lúc này, xét ở thẻ html
+*/
+html{
+  font-size: 62.5%;
+  /* 1em = 1rem = 10px */
+}
+/* hay sử dụng rem, linh động */
+
+/* -------------------------------------------------------------- */
+/* 
+border: border-width border-style border-color;
+border-width: ___
+border-style: solid dashed dotted double 
+border-color: ___
+*/
+/*  outline ~~ border
+    nhưng outline ko có border-radius(bo góc)
+*/
+/* -------------------------------------------------------------- */
+.margin{
+  width: 14rem;
+  height: 14rem;
+  background-color: #2979ff;
+  margin: 10px;
+  margin-bottom: 80px;
+
+  /* center - block tags */
+  /* margin-left: auto;
+  margin-right: auto;   */
+
+    /* 1 giá trị: top = right = left = bottom = 20px */
+    margin: 20px;
+    /* 2 giá trị: top = bottom = 20px, right = left = 40px */
+    margin: 20px 40px;
+    /* 3 giá trị:  top = 10px right = left = 20px bottom = 30px*/
+    margin: 10px 20px 30px;
+    /* 4 giá trị: top = 10px, right = 20px, bottom = 30px, left = 40px */
+    margin: 10px 20px 30px 40px;
+
+  /* Margin có thể dùng số ÂM */
+  /* Padding ko dùng đc số ÂM */
+}
+
+/* 
+.margin2{
+  margin-top: 50px;
+} */
+/* chỉ hiển thị margin-bottom: 80px */
+/* Vấn đề: margin collapse 
+khi phần tử trên có margin-bottom phần tử dưới có margin-top thì sẽ lấy margin lớn hơn
+-> chỉ lấy 1 giá trị margin
+*/
+/* -------------------------------------------------------------- */
+.padding{
+  width: 10rem;
+  height: 10rem;
+  background-color: palegoldenrod;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10px;
+
+  /* 1 giá trị: top = right = left = bottom = 20px */
+  padding: 20px;
+  /* 2 giá trị: top = bottom = 20px, right = left = 40px */
+  padding: 20px 40px;
+  /* 3 giá trị:  top = 10px right = left = 20px bottom = 30px*/
+  padding: 10px 20px 30px;
+  /* 4 giá trị: top = 10px, right = 20px, bottom = 30px, left = 40px */
+  padding: 10px 20px 30px 40px;
+}
+
+/* -------------------------------------------------------------- */
+.boxed{
+  width: 10rem;
+  height: 10rem;
+  border: 5px solid black;
+  padding: 1rem;
+  background-color: gold;
+
+  box-sizing: content-box; 
+  /* giá trị mặc định của box-sizing, 130px
+   width = width + padding-left+padding-right + margin-left+margin-right + border-left+border-right; 
+   ~~height  
+  100 + 10 + 10 + 5 + 5 = 130
+  */
+  box-sizing: border-box; 
+  /* 100px 
+  width = width - padding-left - padding-right - border-left - border-right;
+  ~~height
+  width = 100- 10 - 10 - 5 - 5 = 70
+  + border + padding = 100
+  */
+}
+*{
+  box-sizing: border-box;
+}
+/* -------------------------------------------------------------- */
+/* thẻ inline: width, height, margin-top, margin-bottom, float ko có tác dụng -> hạn chế về CSS*/
+a{
+  text-decoration: none;
+  color: white;
+  width: 10rem;
+  height: 10rem;
+  padding: 1rem;
+  /* background-color: black; */
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------- */
+.font{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+}
+/* -------------------------------------------------------------- */
+.font{
+  line-height: 1.4; /* khoảng cách giữa cách dòng */
+  text-align: left;
+  
+  /* căn lề */
+  /* text-align: right;
+  text-align: center;
+  text-align: justify; */
+  
+  /* max-width: 30rem;
+  letter-spacing: 1px; 
+  word-spacing: 2px;  */
+  
+  /* overflow: hidden; */
+  /* văn bản chỉ nằm trên 1 dòng */
+  /* white-space: nowrap;  */ 
+
+  /* hiển thị dấu ... trên 1 hàng*/
+  /* text-overflow: ellipsis;  */
+  
+  /* hiển thị dấu ... tới hàng thứ 3 */
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; */
+  /* một số trình duyệt sẽ hiển thị ko tốt -> dùng js tính toán số kí tự để hiển thị */
+
+  /*ng dùng spam nhập 1 từ dính nhau thế này
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    -> giao diện sẽ bị vỡ, và scroll ngang xuất hiện
+  yêu cầu: vẫn rớt xuống hàng
+  */
+  word-break: break-all;
+  word-break: break-word; /* __recommended */
+}
+/* -------------------------------------------------------------- */
+img{
+  display: block;
+  max-width: 100%; /* __recommended */
+}
+.image{
+  width: 20rem;
+  height: 20rem;
+  
+  object-fit: cover; /* hình đc tự động scale -> nét hơn */
+  object-position: bottom; /* mặc định là center khi fit hình ảnh */
+  
+  margin: 0 auto; /* center, chỉ với display: block; */
+  
+  display: inline-block;
+  border-radius: 50%;
+}
+.image-wrap{
+  text-align: center; /* trick: đưa inline tag ra giữa */
+}
+/* -------------------------------------------------------------- */
+.pseudo{
+  color: black;
+  font-size: 5rem;
+}
+.pseudo:hover{
+  color: orange;
+}
+.pseudo:active{
+  color: red;
+}
+/* .pseudo:visited{
+  color: #2979ff;
+} */
+/* -------------------------------------------------------------- */

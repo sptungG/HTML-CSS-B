@@ -1,0 +1,242 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+img{
+  display: block;
+  max-width: 100%;
+}
+/* Sử dụng biến để dùng chung ở nhiều nơi và thuận tiện sửa giá trị */
+:root{
+  --primary-color: #00aefd;
+  --secondary-color: #ffa500;
+}
+/* var(--primary-color); */
+/* ------------------------------ ------------------------------*/
+.boxed{
+  width: 20rem;
+  height: 20rem;
+  cursor: pointer;
+  background-image: linear-gradient(to right bottom, var(--secondary-color), var(--primary-color) );
+  /* 
+  linear-gradient()
+  direction: to right, to left, to bottom to top, to right bottom, to left bottom, to left top, to right top,  or 120deg
+  color1
+  color2
+  */
+}
+/* ------------------------------ ------------------------------*/
+.title{
+  font-weight: bold;
+  font-size: 3rem;
+  display: inline-block;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  /* color: transparent;
+  background-image: linear-gradient(to left top, var(--secondary-color), var(--primary-color) );
+  -webkit-background-clip: text;
+  background-clip: text; */
+  color:blue;
+}
+/* ------------------------------ ------------------------------*/
+.background{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+     rgba(255, 166, 0, 0.753),
+      rgba(0, 173, 253, 0.699) 
+      ),
+      url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@supports (-webkit-background-clip: text){
+  .title{
+    color: transparent;
+    background-image: linear-gradient(to left top, var(--secondary-color), var(--primary-color) );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+} /*nếu trình duyệt có hỗ trợ thì text sẽ màu gradient, những trình duyệt ko hỗ trợ thì hiển thị màu blue*/
+/* ------------------------------ ------------------------------*/
+.shadow{
+  /* --secondary-color: purple; */
+  width: 20rem;
+  height: 20rem;
+  background-color: #000;
+  margin: 5rem auto;
+  /* box-shadow: x y blur(mờ) scale(mặc định bằng kích thước ô) color; */
+  box-shadow: 20px -20px 0px 0px var(--secondary-color);
+}
+.text-shadow{
+  font-size: 5rem;
+  font-weight: bold;
+  text-shadow: 20px -20px 0px palevioletred;
+}
+/* ------------------------------ ------------------------------*/
+/* Độ ưu tiên trong CSS */
+/* h2{
+  color: crimson !important;
+} */
+/* Tag < Class < Id< !important
+    đánh dấu thuộc tính quan trọng -> ưu tiên nhất
+    hạn chế sử dụng important
+*/
+
+/* Tag < Class < Id < inline-style < important*/
+
+#titlee{
+  color: palevioletred;
+}
+/* Tag < Class < Id */
+
+.titlee{
+  color: aquamarine; 
+}
+/* Tag < Class
+-> Class sẽ đc ưu tiên hơn Tag -> chữ màu xanh lá */
+
+h2{
+  color: #00aefd;
+} 
+/* ưu tiên cao hơn Tag */
+/* -> selectors cùng cấp, thì cái ở dưới sẽ ddc ưu tiên hơn -> chữ màu xanh*/
+
+
+h2{
+  font-size: 5rem;
+  font-weight: bold;
+  color: orange;
+}
+/* 
+xác định độ ưu tiên trong CSS đơn giản với VSCode
+(x,y,z) ->(tag, class or attribute, id)
+
+0 0 1 tag
+0 1 0 class
+1 0 0 id
+*/
+/* ------------------------------ ------------------------------*/
+ul{
+  font-size: 5rem;
+  font-weight: bold;
+}
+/* 
+li:first-child{
+  color: red;
+}
+li:last-child{
+  color: #ffa500;
+}
+li:nth-child(2){
+  color: aquamarine;
+}
+li:nth-child(4){
+  color: bisque;
+}
+li:not(:first-child){
+  color: green;
+}
+li:nth-child(odd){
+  color: #ffa500;
+}
+li:nth-child(even){
+  color: #000;
+}
+li:nth-child(2n + 1){
+  color: aqua;
+} */
+/* ------------------------------ ------------------------------*/
+/*
+li:first-of-type{
+  color: #ffa500;
+}
+li:last-of-type{
+  color: red;
+}
+li:nth-of-type(even){
+  color: royalblue;
+} */
+li:first-child{
+  /* Thêm 1 thẻ khác <li> vào vị trí đầu tiên, thì li:first-child sẽ bị lỗi 
+  để khắc phục vấn đề này thì ta sẽ sử dụng type, vì type nó sẽ check theo kiểu.
+  */
+  color: royalblue; /* -> ko đổi màu */
+}
+li:first-of-type{
+  color: #ffa500;
+}
+/* ------------------------------ */
+li span:first-child{
+  color: red; /* SaI */
+}
+li:first-child span{
+  color: #000;
+}
+/* ------------------------------ ------------------------------*/
+h3 + .title1{
+  color: green;
+}
+/* h3 +.title1 + .title2{
+  color: #ffa500;
+} */
+
+h3 ~.title2{
+  /* đứng cùng cấp với nhau nhưng ko nhất thiết phải liền kề */
+  color: #ffa500;
+}
+/* Dùng nhiều khi đi làm */
+/* ------------------------------ ------------------------------*/
+a[href^="https"]{
+  /* dấu mũ ^ -> chọn ra các thẻ a có href bắt đầu bằng https */
+  color: #000;
+} 
+a[href$=".vn"]{
+  /* dấu $ -> chọn ra các thẻ a có href kết thúc bằng vn  */
+  color: #00aefd;
+}
+a[href*="www"]{
+  /* dấu * -> chọn ra các thẻ a có href có chứa www  */
+  color: violet;
+}
+div[data-title="value"]{
+  /* chọn ra những cái div có data-title chính xác = value*/
+  color: red;
+}
+p::first-letter{
+  /* Lấy kí tự đầu tiên */
+  color: red;
+  font-size: 4rem;
+}
+p::first-line{
+  /* lấy dòng đầu tiên */
+  color: #00aefd;
+}
+/* ------------------------------ ------------------------------*/
+.boxed2{
+  width: 20rem;
+  height: 20rem;
+  background-color: aquamarine;
+  /* transition: property timer(s) easing(linear(chậm đều), ease(nhanh đều)....); */
+  /* transition: background-color 0.2s linear; */
+  /* transition-delay: 0.2s; */
+  transition: background-color 0.2s ease, color 1s ease;
+  /* transition: all 0.2s linear;   */
+}
+.wrap:hover .boxed2{
+  display: inline-block;
+}
+.boxed2:hover{
+  background-color: royalblue;
+  color: white;
+  /* display: none; ko áp dụng hover, transition đc */
+}

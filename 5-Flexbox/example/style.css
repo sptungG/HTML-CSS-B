@@ -1,0 +1,203 @@
+*{
+  box-sizing: border-box;
+}
+img{
+  display: inline-block;
+  max-width: 100%;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+/* ------------------------------------- ------------------------------------- */
+/* Flexbox là 1 giá trị trong display: flex, đi kèm với flex thì còn có rất nhiều thuộc tính đi kèm nữa để dàn layout. 
+
+*/
+/* ------------------------------------- ------------------------------------- */
+/* khi sử dụng flex -> những phần bị ảnh hưởng là con của nó */
+
+.list{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row; 
+  /* mặc định là row(ngang), */
+  
+  /* align-items: stretch;
+  align-items: flex-start; 
+  align-items: baseline; */
+  /* mặc định là stretch -> các cột tự động cao bằng nhau */
+  /* flex-start -> căn trên đầu */
+  /* flex-end -> căn ở dưới */
+  /* center -> căn giữa */
+  /* baseline -> căn đuôi chữ của thằng đầu tiên */
+  /* yêu cầu: chỉ thằng cuối cùng nó nằm phía dưới -> align-self: chỉ áp dụng cho phần tử con */
+  
+  /* justify-content: flex-start;
+  justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly; */
+  /* mặc định là flex-start -> các phần tử con nằm bên trái */
+  /* flex-end -> phải */
+  /* center -> giữa */
+  /* space-between -> 3 cái 1 đầu 1 giữa 1 đầu còn lại */
+  /* space-around -> khoảng trống 2 bên bằng 1/2 khoảng trống giữa */
+  /* space-evenly -> khoảng trống luôn đều nhau */
+  
+  /* flex-wrap: nowrap;
+  flex-wrap: wrap; */
+  /* ko bị rớt hàng do măc định flex-wrap: nowrap */
+  
+  /* flex-flow: row nowrap; */
+  /* viết tắt của flex-direction: & flex-wrap */
+}
+.list_item{
+  background-color: orange;
+  padding: 1rem;
+  margin: 5px;
+  /* width: 40%;  */
+}
+.list_item:first-child{
+  font-size: 5rem;
+}
+/* .list_item:last-child{
+  align-self: flex-end;
+} */
+/* ------------------------------------- ------------------------------------- */
+.list{
+  flex-direction: column;
+
+  /* align-items: stretch;
+  align-items: flex-start;
+  align-items: center;
+  align-items: flex-end;
+  align-items: baseline;
+  
+  justify-content: flex-start;
+  height: 50rem;
+  justify-content: center;  */
+  /*xét theo chiều cao bao ngoài */
+  /* justify-content: space-between;
+  justify-content: space-around;
+  justify-content: space-evenly;
+
+  align-items: stretch; */
+
+}
+/* .list_item:nth-child(2){
+  align-self: center;
+}
+.list_item:last-child{
+  align-self: flex-end;
+} */
+/* ------------------------------------- ------------------------------------- */
+.list{
+  flex-direction: column;
+  /* -> dcba */
+  /* yêu cấu: đảo lại thành abdc -> order cho phần tử con*/
+
+}
+/* .list_item{
+  order: 0;
+}
+.list_item:nth-child(2){
+  order: 1;
+}
+.list_item:nth-child(3){
+  order: 4;
+}
+.list_item:last-child{ 
+  order: 2;
+} */
+.layout{
+  display: flex;
+  /* ERROR: icon bị bóp mặc dù đã xét w h
+  -> hàm calc */
+}
+.icon{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  background-color: royalblue;
+  color: #fff;
+  /* centering by flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 
+  position: relative
+  
+  > position: absolute;
+  top50%
+  left50%
+  transform:translate(-50%;-50%);
+  */
+
+  /* khi chia layout ->  */
+}
+.layout p{
+  /* width: calc(100% - 10rem); */
+  --value: 10rem;
+  width: calc(100% - var(--value));
+  /* margin-bottom: -100px; */
+  margin-bottom: calc(-1 * 100px);
+}
+/* ------------------------------------- ------------------------------------- */
+:root{
+  --spacing: 1rem;
+}
+.image_list{    
+  display: flex;
+  /* justify-content: space-between; 
+  -> ERROR: khi có nhiều ảnh thì sẽ ko ra đc layout như ý muốn
+  */
+  flex-wrap: wrap;
+  margin: 5rem 0 0 calc(-1 * var(--spacing));
+  /* nên dùng cách margin âm -> mọi trường hợp */
+}
+.image_item{
+  width: calc((100%/3) - var(--spacing));
+  margin-left: var(--spacing);
+  margin-bottom: var(--spacing);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ------------------------------------- ------------------------------------- */
+.boxed{
+  /* width: 5rem; */
+  /* height: 5rem; */
+  display: inline-block;
+  /* background-color: #000; */
+  margin: 2rem auto;
+  /* border-top: 10px solid orange;
+  border-right: 10px sid red;
+  border-bottom: 10px solid royalblue;
+  border-left: 10px solid green; */
+  /* below below */
+  border-left: 10px solid transparent;
+  border-right: 10px solid  transparent;
+  border-bottom: 10px solid orange;
+  /* left triangle */
+  border-top: 10px solid transparent;
+  border-left: 10px solid orange;
+  border-bottom: 10px solid transparent;
+  /* right triangle */
+  border-top: 10px solid transparent;
+  border-right: 10px solid orange;
+  border-bottom: 10px solid transparent;
+  /* top triangle */
+  border-top: 10px solid orange;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+

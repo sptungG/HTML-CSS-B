@@ -1,0 +1,87 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* using rem unit */
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+.post_list {
+  padding: 2rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -2rem;
+}
+.post_item {
+  margin-left: 2rem;
+  width: calc(25% - 2rem);
+}
+.post_image {
+  width: 100%;
+  object-fit: cover;
+  height: 20rem;
+}
+.post_title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+.post_content {
+  padding: 2rem;
+  background-color: #fff;
+  border: 1px solid #eee;
+  height: calc(100% - 20rem);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.post_author {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: auto;
+}
+
+/*# sourceMappingURL=main.css.map */

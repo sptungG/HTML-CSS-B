@@ -1,0 +1,102 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/* using rem unit */
+html {
+  font-size: 62.5%;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+input {
+  line-height: normal;
+}
+button {
+  cursor: pointer;
+}
+//
+.author {
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  display: flex;
+  overflow: hidden;
+  height: 40rem;
+  &_image {
+    height: 100%;
+    object-fit: cover;
+  }
+  &_content {
+    padding: 3rem;
+    background-color: #eee;
+  }
+  &_name {
+    color: #333;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+  &_desc {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin-bottom: 3rem;
+  }
+  &_contact,
+  &-social {
+    display: flex;
+    align-items: center;
+  }
+  &-social {
+    &_item {
+      margin-left: 1rem;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .author {
+    &_image {
+      width: 35%;
+    }
+    &_content {
+      width: 65%;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .author {
+    padding: 0 2rem;
+    flex-direction: column;
+    height: auto;
+    &_image,
+    &_content {
+      width: 100%;
+    }
+    &_image {
+      height: 25rem;
+      border-radius: 1rem 1rem 0 0;
+    }
+    &_content{
+      border-radius: 0 0 1rem 1rem;
+    }
+  }
+}

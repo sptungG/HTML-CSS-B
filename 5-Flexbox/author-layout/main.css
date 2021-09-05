@@ -1,0 +1,106 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* using rem unit */
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+.author {
+  max-width: 1000px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  display: flex;
+  overflow: hidden;
+  height: 40rem;
+}
+.author_image {
+  height: 100%;
+  object-fit: cover;
+}
+.author_content {
+  padding: 3rem;
+  background-color: #eee;
+}
+.author_name {
+  color: #333;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.author_desc {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 3rem;
+}
+.author_contact, .author-social {
+  display: flex;
+  align-items: center;
+}
+.author-social_item {
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .author_image {
+    width: 35%;
+  }
+  .author_content {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .author {
+    padding: 0 2rem;
+    flex-direction: column;
+    height: auto;
+  }
+  .author_image, .author_content {
+    width: 100%;
+  }
+  .author_image {
+    height: 25rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .author_content {
+    border-radius: 0 0 1rem 1rem;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

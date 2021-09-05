@@ -1,0 +1,57 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+p {
+  color: #ffa400;
+}
+
+/*CSS
+.header{}
+.header-top{}
+.header-content{}
+.header-content:hover{}
+.header-content:before{}
+.header-content:hover:before{}
+*/
+.header-top {
+  color: red;
+}
+.header-top:hover {
+  color: orange;
+}
+.header-content {
+  font-size: 3rem;
+}
+
+.boxed {
+  width: 10rem;
+  height: 20rem;
+  background-color: #FF6651;
+}
+
+.container {
+  width: 100%;
+  height: 40rem;
+  background-color: royalblue;
+  position: relative;
+}
+.container .boxing {
+  width: 10rem;
+  height: 10rem;
+  background-color: #ffa400;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*# sourceMappingURL=style.css.map */

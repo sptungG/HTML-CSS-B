@@ -1,0 +1,157 @@
+html {
+box-sizing: border-box;
+font-size: 62.5%;
+}
+*{
+margin: 0;
+padding: 0;
+}
+*,*:before,*:after {
+box-sizing: border-box;
+}
+input,
+textarea,
+select,
+button{
+outline: none;
+}
+input{
+line-height: normal;
+}
+label,
+button{
+cursor: pointer;
+}
+a {
+text-decoration: none;
+}
+img {
+display: block;
+max-width: 100%;
+}
+/* ------------------------------------------ ------------------------------------------ */
+.title{
+  font-size: 5rem;
+  position: relative;
+  margin: 2rem;
+  padding-left: 3rem;
+}
+.title::before{
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  background-color: royalblue;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+/* ------------------------------------------ ------------------------------------------ */
+.line{
+  font-size: 3rem;
+  text-align: center;
+  position: relative;
+}
+.line::after{
+  content: "";
+  width: 100%;
+  height: 2px;
+  /* background-color: #000; */
+  background-image: linear-gradient( to right, #000, #fff);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.text-line{
+  display: inline-block;
+  /* chuyển sang inline block để dùng đc padding top, bottom */
+  padding: 10px;
+  background-color: white;
+  /* Đặt z-index cao lên để đè lên line */
+  position: relative;
+  z-index: 2; 
+}
+/* ------------------------------------------ ------------------------------------------ */
+.icon{
+  margin: 5rem auto;
+  height: 5rem;
+  width: 5rem;
+  position: relative;
+  border-radius: 4px;
+  color: red;
+
+}
+.icon-user{
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.icon::after{
+  content: "";
+  background-color: currentColor;
+  opacity: 0.3;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* ------------------------------------------ ------------------------------------------ */
+.effect{
+  display: inline-block;
+  padding: 2rem;
+  font-size: 3rem;
+  margin: 5rem;
+  text-align: center;
+  /* border: 1px solid orange; */
+  transition: all .25s linear;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+}
+.effect::before{
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  background-color: orange;
+  z-index: -1;
+  transition: width .25s linear;
+}
+.effect:hover::before{
+  width: 100%;
+}
+
+.effect:hover{
+  color: white;
+}
+/* ------------------------------------------ ------------------------------------------ */
+.boxed{
+  width: 10rem;
+  height: 10rem;
+  /* background-color: aquamarine; */
+  /* transform: rotate(45deg);  */
+  /* chữ cũng bị xoay theo rotate, gây ra nhiều lỗi UI khi muốn làm hình nền phức tạp
+    -> tạo 1 lớp giả bằng before after */
+  position: relative;
+}
+.boxed::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: aquamarine;
+  z-index: -1;
+  transform: rotate(45deg);
+  /* chữ sẽ ko bị ảnh hưởng, ko bị xoay theo khối */
+}

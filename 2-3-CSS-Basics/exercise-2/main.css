@@ -1,0 +1,165 @@
+*{
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+}
+/* --------------------------------- --------------------------------- */
+.btn{
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  margin: 2rem;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  text-shadow: 0.2px 0.2px 0 #fff;
+}
+.btn-green{
+ background-image: linear-gradient( 
+    to right,  #50cfc6, #68ecac
+    );
+  box-shadow: 1px 1px 8px 2px rgba(80, 207, 199, 0.479);
+}
+.btn-blue{
+  background-image: linear-gradient( 
+    to right, rgba(0, 0, 250, 0.5), rgb(0, 0, 250)
+    );
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 250, 0.5);
+}
+.btn-purple{
+  background-image: linear-gradient( 
+    to right, rgba(196, 0, 196, 0.5), rgb(196, 0, 196)
+    );
+    box-shadow: 1px 1px 5px 2px rgba(196, 0, 196, 0.5);
+}
+.btn-orange{
+  background-image: linear-gradient( 
+    to right, rgba(250, 165, 0, 0.5), rgb(250, 165, 0)
+    );
+    box-shadow: 1px 1px 5px 2px rgba(250, 165, 0, 0.5);
+}
+.btn-red{
+  background-image: linear-gradient( 
+    to right, rgba(250, 0, 0, 0.5), rgb(250, 0, 0)
+    );
+    box-shadow: 1px 1px 5px 2px rgba(250, 0, 0, 0.5);
+}
+.btn-pink{
+  background-image: linear-gradient( 
+    to right, rgba(250, 192, 203, 0.5), rgb(250, 192, 203)
+    );
+    box-shadow: 1px 1px 5px 2px rgba(250, 192, 203, 0.5);
+  
+}
+/* --------------------------------- --------------------------------- */
+/* Tạo ra text gradient đơn giản như hình: codropspz-tympanus.netdna-ssl.com/codrops/wp-content/uploads/2015/02/TextFill_image6.png */
+
+.text-gradient{
+  display: inline-block; /* hiển thị màu chính xác hơn */
+  font-size: 8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  color: transparent;
+  background-image: linear-gradient( to left,  #FF4895,  #FFD96A); /*dùng extention lấy mã màu*/
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* --------------------------------- --------------------------------- */
+/* Sử dụng CSS về child hoặc type để làm các màu như hình ví dụ color__item:first-child{background-color:red}: colors */
+
+.color_item{
+  display: inline-block;
+  width: 10rem;
+  height: 15rem;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  transition: all 0.25s linear;
+}
+li:first-child{
+  background-color: #A24BF0;
+}
+li:nth-child(2){
+  background-color: #38DBB2;
+}
+li:nth-child(3){
+  background-color: #25C2E3;
+}
+li:nth-child(4){
+  background-color: #EA344F ;
+}
+li:nth-child(5){
+  background-color: #DD44A7;
+}
+li:nth-child(6){
+  background-color: #F7AC2A;
+}
+li:nth-child(7){
+  background-color: #000000;
+}
+li:nth-child(8){
+  background-color: #555555;
+}
+li:nth-child(9){
+  background-color: #888888;
+}
+li:nth-child(10){
+  background-color: #D2D2D2;
+}
+li:nth-child(11){
+  background-color: #E8E8E8;
+}
+li:last-child{
+  background-color: #FCFCFC;
+}
+
+/* --------------------------------- --------------------------------- */
+/* Sử dụng :hover để khi hover vào các màu ở các bài 3 thì đổi màu bât kỳ mà các bạn thích, lưu ý có transition cho nó mượt */
+li:nth-child(even):hover{
+  background-color: brown;
+  color: #fff;
+}
+li:nth-child(odd):hover{
+  background-color: chocolate;
+  color: #fff;
+}
+/* --------------------------------- --------------------------------- */
+/* Dùng kiến thức về Selectors để chọn ra các thẻ div có data-link bắt đầu bằng https
+
+Chọn ra các thẻ div có data-link kết thúc bằng .vn
+
+Chọn ra các thẻ div có data-name có chứa chữ hello
+
+Chọn ra input có type là email
+
+Chọn ra input có name là fullname */
+.wrap{
+  font-size: 3rem;
+  line-height: 1.4;
+}
+div[data-link^="https"]{
+  color: #25C2E3;
+}
+div[data-link$="vn"]{
+  color: #38DBB2;
+}
+div[data-name*="hello"]{
+  color: #A24BF0;
+  text-decoration: underline;
+}
+input[type="email"]{
+  padding: 10px;
+}
+input[name="fullname"]{
+  padding: 10px 5px;
+}

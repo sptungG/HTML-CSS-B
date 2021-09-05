@@ -1,0 +1,43 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  }
+*{
+  margin: 0;
+  padding: 0;
+  }
+*,*:before,*:after {
+  box-sizing: border-box;
+  }
+input,
+textarea,
+select,
+button{
+  outline: none;
+  }
+input{
+  line-height: normal;
+  }
+label,
+button{
+  cursor: pointer;
+  }
+a {
+  text-decoration: none;
+  }
+img {
+  display: inline-block;
+  max-width: 100%;
+  }
+body {
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+ul, ol{
+  list-style: none;
+}
+//
+

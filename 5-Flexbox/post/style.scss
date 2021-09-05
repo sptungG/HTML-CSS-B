@@ -1,0 +1,95 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* using rem unit */
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #eee;
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+@mixin flexbox($align: flex-start, $justify: flex-start, $direction: row, $wrap: wrap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+.post {
+  padding: 2rem;
+  margin: 5rem auto;
+  max-width: 100%;
+  background-color: #fff;
+  border-radius: 2rem;
+  // @include flexbox(center);
+  @include flexbox(center, flex-start, row, nowrap);
+  &_media {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    border-radius: inherit;
+    overflow: hidden;
+    // flex-shrink: cho phép co lại hay ko, mặc định 1
+    // flex-grow: cho phép giãn ra hay ko, mặc định 1
+  }
+  // PROBLEM: ảnh vẫn bị co dù đã set w h cố định
+  // C1:
+  // &_content {
+  //   width: calc(100% - 10rem);
+  // }
+  // C2:
+  &_media {
+    flex-shrink: 0;
+    // flex-grow: 1;
+    // flex-basis: 0;
+  }
+  &_content {
+    padding: 1rem;
+    flex-grow: 1;
+    flex-basis: 0;
+    line-height: 1.1;
+  }
+  &_play {
+    color: #fff;
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(50%, 50%);
+  }
+}

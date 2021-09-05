@@ -1,0 +1,227 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* using rem unit */
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #eee;
+  padding: 2rem;
+}
+
+input,
+button,
+textarea,
+select {
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+input {
+  line-height: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+// @mixin maxHeight($widthh: 10rem, $heightt: "auto") {
+//   width: $widthh;
+//   height: $heightt;
+//   @if $heightt >= $widthh {
+//     max-height: auto;
+//   }
+// }
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+$primary-color: #fc556f;
+$secondary-color: #fd9c84;
+$gradient: linear-gradient(to right, $primary-color, $secondary-color);
+
+.post {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  @include flexbox(stretch, space-between, row, wrap);
+  max-width: 100rem;
+  margin: 0 auto;
+  &_left,
+  &_right {
+    width: calc(50% - 1rem);
+  }
+  &_media {
+    height: 25rem;
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+  &_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    overflow: hidden;
+    &-small {
+      width: 15rem;
+      height: 10rem;
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+  }
+  &_category {
+    color: #fff;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-image: $gradient;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+  }
+  &_icon {
+    width: 5rem;
+    height: 5rem;
+    color: #fff;
+    @include flexbox(center, center);
+    background-image: $gradient;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 2rem;
+    transform: translateY(50%);
+    z-index: 2;
+  }
+  &-author {
+    @include flexbox(center);
+    color: #999;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    &_avatar {
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    &_name {
+      position: relative;
+      margin-right: 2rem;
+      padding-right: 2rem;
+      &::before {
+        content: "";
+        width: 0.5rem;
+        height: 0.5rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $primary-color;
+        border-radius: 50%;
+      }
+    }
+  }
+  &_title {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    &-small {
+      font-size: 1.4rem;
+      margin-bottom: 0;
+    }
+  }
+  &_desc {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    color: #999;
+  }
+  &_date {
+    color: #999;
+    font-size: 1.4rem;
+  }
+  &_item {
+    @include flexbox(center);
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+  }
+  &_content {
+    width: 100%;
+    flex-grow: 1;
+  }
+  &_link {
+    color: inherit;
+  }
+}
+@include maxWidth(767px) {
+  .post {
+    &_left,
+    &_right {
+      width: 100%;
+    }
+    &_left {
+      margin-bottom: 2.5rem;
+    }
+    &_image-small {
+      width: 10rem;
+      height: auto;
+      max-height: 10rem;
+    }
+    &_title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      &-small {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

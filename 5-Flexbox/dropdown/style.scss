@@ -1,0 +1,111 @@
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100vh;
+  background-color: #f3efff;
+}
+ul {
+  list-style: none;
+}
+$blue-color: #42a7fe;
+//
+.dropdown {
+  width: 40rem;
+  margin: 5rem auto 0; //đưa ra giữa
+  position: relative;
+  &_select {
+    padding: 2rem 2.5rem 2rem 4rem;
+    background-color: $blue-color;
+    color: #fff;
+    // Dàn 3 phần tử như hình: 2 cái đầu đi cạnh nhau, và cái cuối ở cuối
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    // justify-content: space-between;
+    // PROBLEM: 3 cái bị dàn đều như nhau, tạo ra khoảng trống giữa 3 cái
+  }
+  // -> k/c giữa cái 1 và 2 là 35px, và cái cuối ở cuối
+  &_text {
+    margin-left: 3.5rem;
+  }
+  &_caret {
+    margin-left: auto;
+  }
+  &_item {
+    padding: 2rem 2.5rem 2rem 4rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #b3bbee;
+    // hover border
+    border-left: 3px solid transparent;
+    transition: all 0.2s linear;
+    //
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    &:hover {
+      border-left-color: $blue-color;
+    }
+  }
+  &_list {
+    position: absolute !important;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(black, 0.1);
+    margin-top: 3rem;
+    position: relative;
+    background-color: white;
+    // display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    // tạo tam giác
+    &::before {
+      content: "";
+      // width: 0;
+      // height: 0;
+      position: absolute;
+      top: 0;
+      right: 2rem;
+      // transform: translateY(-100%);
+      // border-left: 10px solid transparent;
+      // border-right: 10px solid transparent;
+      // border-bottom: 10px solid #fff;
+      // PROBLEM: hình khối cn lộ ra ngoài tam giác
+      // -> thay vì dùng border
+      width: 2rem;
+      height: 2rem;
+      background-color: #fff;
+      border-radius: 4px;
+      transform: translateY(-50%) rotate(45deg);
+      z-index: -1;
+    }
+    &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3rem;
+      transform: translateY(-100%);
+    }
+  }
+  &:hover{
+    .dropdown_list{
+      // display: block; //PROBLEM: hiệu ứng sẽ hơi giật
+      // bỏ display để thêm transition
+      opacity: 1;
+      visibility: visible;
+      // PROBLEM: hover vào khoảng cách sẽ ko hiện list đc 
+      // -> after
+    }
+  }
+}

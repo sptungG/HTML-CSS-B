@@ -1,0 +1,174 @@
+*{
+  box-sizing: border-box;
+}
+img{
+  display: inline-block;
+  max-width: 100%;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  font-size: 1.6rem;
+  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+/* ------------------------------------- ------------------------------------- */
+.boxed{
+  width: 20rem;
+  height: 10rem;
+  background-color: red;
+  transform: scale(0.5, 0.5);
+  /* transform: rotate(45deg); */
+  /* transform: translateX(10px); */
+  /* transform: translateX(100%); 100% = 100% kích thước phần tử */
+  /* transform: scale(2) rotate(45deg) translate(100%, 50%); */
+  /* transform: skewX(30deg) skewY(30deg); */
+  /* transform: rotateZ(30deg); */
+}
+/* tăng chiều cao nhưng ko muốn đẩy đoạn chữ xuống */
+/* Transform -> thay đổi vật thể nhưng nó vẫn chiếm diện tích như cũ */
+/* transform: scale(x,y) scaleX(_) scaleY(_); */
+/* transform: rotate(__deg) rotateX(_deg) rotateY(30deg) rotateZ(_deg);  */
+/* transform: translate(x, y) translateX(_) translateY(_); */
+/* transform: skew(_deg) skewX() skewY() */
+/* ------------------------------------- ------------------------------------- */
+.boxed{
+  position: relative;
+  left: 10px;
+  /* right: 50px; */
+  /* để cả right và left -> canh left */
+  top: 10px;
+  /* bottom: -50px; */
+  /* để cả top và bottom -> canh top */
+} /* --> relative hoạt động giống transform, nhưng ko có scale */
+/* ------------------------------------- ------------------------------------- */
+.wrap{
+  width: 100%;
+  height: 50rem;
+  background-color: black;
+  position: relative;
+}
+/* 
+chạy theo phần tử cha có thuộc tính position: relative hoặc absolute 
+-> phần tử con khi sử dụng absolute thì sẽ chạy theo phần tử cha có relative hoặc absolute.
+*/
+.text{
+  position: relative;
+  color: white;
+  z-index: 2;
+}
+.boxed1{
+  width: 10rem;
+  height: 10rem;
+  background-color: royalblue;
+  /* right: 100px;
+  bottom: 100px; */
+
+  /*------ Centering  */
+  /* position: absolute;
+  top: 50%;
+  left: 50%;  
+  transform: translate(-50%,-50%); */
+}
+/*------ cho boxed phủ hết cái khung(overlay) */
+.boxed1{
+  position: absolute;
+  /*------ overlay all */
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; */
+
+  /* top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto; */
+
+  /*------ overlay chiều ngang */
+  /* width: 100%;
+  top: 0;
+  left: 0; */
+
+  /* width: auto;
+  left: 0;
+  top: 0;
+  right: 0; */
+
+  /*------ overlay chiều dọc */
+  /* height: 100%;
+  top: 0;
+  left: 0; */
+ 
+  height: auto;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  z-index: 1;
+}
+/*------ z-index. chỉ hoạt động khi đi kèm position */
+/* ------------------------------------- ------------------------------------- */
+.header{
+  height: 10rem;
+  background-color: royalblue;
+  position: fixed; 
+  /*fixed chạy theo body, ko chạy theo phần tử cha chứa nó*/
+  /* -> che nội dung bên dưới -> body padding-top*/
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  /* transform: translate(30px, 30px);  */
+  /*-> ERROR, ko nên dùng transform: translate ở phần tử cha, khi phần tử con fixed */
+}
+/* body{
+  padding-top: 10rem;
+} */
+/* ------------------------------------- ------------------------------------- */
+/* before after -> Công dụng Mạnh mẽ */
+/* bắt buộc phải có thuộc tính content */
+.title::before{
+  content: "Tung";
+}
+.title::after{
+  content: "Tungg"; 
+}
+/* ------------------------------------- ------------------------------------- */
+/* Animation chuyển động có thể xảy ra 1 hoặc nhiều lân, lặp lại  */
+/* Hiểu đc nguyên lí hđ của animation cần làm, sử dụng những cái thuộc tính về css ra sao, sử dụng những cái keyframe % from to thế nào 
+-> làm ví dụ để hiểu
+*/
+.boxed{
+  width: 5rem;
+  height: 5rem;
+  background-color: brown;
+  /* transform: translateX(20rem); */
+  animation-name: move;
+  /* tên animation cần sử dụng */
+  animation-duration: 2s;
+  /* 2s sẽ chạy xong */
+  /* animation-direction: alternate; */
+  /* normal chạy qua lại  */
+  animation-iteration-count: 1;
+  /* số lần lặp */
+  animation-timing-function: linear;
+  /* ease(nhanh dần) linear(chậm dần) .... */
+  animation-fill-mode: backwards;
+  /* chạy xong về vị trí ban đầu -> backwards
+    chạy xong ở nguyên vị trí cuối -> forwards */
+  animation: move 2s forwards infinite alternate linear 5s; /* gọn*/
+  animation-delay: 5s;
+}
+@keyframes move{ /* tên animation */
+  /* from -> to */
+  from{
+    transform: translateX(0);
+  }to{
+    transform: translateX(100%);
+  }
+}
